@@ -1,20 +1,20 @@
 
-#include <stdio.h> //biblioteca de comunicação com o usuario
-#include <stdlib.h> //biblioteca de alocação de espaço em memoria 
-#include <locale.h> //biblioteca de alocação de texto por região
+#include <stdio.h> //biblioteca de comunicaÃ§Ã£o com o usuario
+#include <stdlib.h> //biblioteca de alocaÃ§Ã£o de espaÃ§o em memoria 
+#include <locale.h> //biblioteca de alocaÃ§Ã£o de texto por regiÃ£o
 #include <string.h> //biblioteca responsavel por cuisar das strings
 
-int registro() //Função responsável por cadastrar os usuários no sistema
+int registro() //FunÃ§Ã£o responsÃ¡vel por cadastrar os usuÃ¡rios no sistema
 {
-	//inicio criação de variáveis/string
+	//inicio criaÃ§Ã£o de variÃ¡veis/string
 	char arquivo[40];
 	char cpf [40];
 	char nome [40];
 	char sobrenome [40];
 	char cargo [40];
-	//final da criação de variáveis/string
+	//final da criaÃ§Ã£o de variÃ¡veis/string
 	
-	printf("Digite o cpf a ser cadastrado:  "); //coletando informação do usuário
+	printf("Digite o cpf a ser cadastrado:  "); //coletando informaÃ§Ã£o do usuÃ¡rio
 	scanf("%s", cpf); // %s refre-se a string
 	
 	strcpy(arquivo, cpf); //responsavel por copiar os valores das string
@@ -78,12 +78,12 @@ int consulta()
 	
 	if(file == NULL)
 	{ 
-	    printf("nao foi possivel abrir o arquivo, não localizado! .\n");
+	    printf("nao foi possivel abrir o arquivo, nÃ£o localizado! .\n");
 	}
     
     while(fgets(conteudo,200,file) != NULL);
     {
-    	printf("\n Essas são as informações do usuario: ");
+    	printf("\n Essas sÃ£o as informaÃ§Ãµes do usuario: ");
     	printf ("%s",conteudo);
     	printf ("\n\n");
     	
@@ -98,7 +98,7 @@ int deletar()
 {
 	char cpf[40];
 	
-	printf("Digite o CPF do usuário a ser deletado: ");
+	printf("Digite o CPF do usuÃ¡rio a ser deletado: ");
 	scanf("%s",cpf);
 	
 	remove(cpf);
@@ -108,7 +108,7 @@ int deletar()
 	
 	if(file == NULL)
 	{
-		printf("O usuário não se encontra no sistema!.\n");
+		printf("O usuÃ¡rio nÃ£o se encontra no sistema!.\n");
 		system("pause");
 		
 		
@@ -126,12 +126,14 @@ int main ()
     system("cls");
     
         setlocale(LC_ALL, "portuguese");
-	    printf("###Cartório da EBAC###\n\n)"); //inicio do menu
-	    printf("Escolha a opção desejada do menu: \n\n");
-     	printf("\t1 - Registrar nomes\n");
+	    printf("###CartÃ³rio da EBAC###\n\n)"); //inicio do menu
+	    printf("Escolha a opÃ§Ã£o desejada do menu: \n\n");
+     	    printf("\t1 - Registrar nomes\n");
 	    printf("\t2 - Consultar nomes\n");
 	    printf("\t3 - Deletar nomes\n");
-	    printf("Opção:") ; //fim do menu 
+	    printf("\t4 - Sair do sistema\n\n");
+
+	    printf("OpÃ§Ã£o:") ; //fim do menu 
 	
 
         scanf("%d" , &opcao); //armazenando a escolha do usuario
@@ -141,7 +143,7 @@ int main ()
         switch(opcao)
         {
         	case 1:
-        	registro(); // chamada de funções
+        	registro(); // chamada de funÃ§Ãµes
             break;
             
             case 2:
@@ -150,6 +152,11 @@ int main ()
      	    
      	    case 3:
             deletar();
+     	    break;
+
+            case 4:
+     	    printf("Obrigado por utilizar o sistema!\n");
+     	    return 0;
      	    break;
      	    	    
    	        default:
